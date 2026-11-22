@@ -1,0 +1,289 @@
+/* 1. Box Model для всіх елементів */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f3f4f6;
+    color: #1f2937;
+    padding: 20px;
+}
+
+/* 2. Селектори тегів */
+h2 {
+    font-size: 1.25rem;
+    color: #111827;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 4px;
+}
+
+h3 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+/* 3. Шапка та контакти (Flexbox) */
+.header-banner {
+    background-color: #1d4ed8; 
+    color: #ffffff;
+    padding: 24px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contacts {
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+    .contacts a {
+        color: #ffffff;
+    }
+
+/* 4. Сітка сторінки (CSS Grid) */
+.resume-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 рівні колонки */
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.full-width {
+    grid-column: 1 / -1; /* На всю ширину */
+}
+
+/* 5. Картки та ID */
+.card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+#profile-summary {
+    border-left: 4px solid #1d4ed8;
+}
+
+/* 6. Навички (Flexbox) та бейджі */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+}
+
+.badge {
+    background-color: #f3f4f6;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+/* 7. Селектори атрибутів та псевдокласи */
+a[target="_blank"] {
+    font-weight: bold;
+}
+
+/* Псевдоклас 1: :hover */
+.badge:hover {
+    background-color: #1d4ed8;
+    color: #ffffff;
+}
+
+/* Псевдоклас 2: :first-of-type */
+.timeline-item:first-of-type {
+    border-left: 2px solid #2563eb;
+    padding-left: 8px;
+}
+
+/* Стилізація відгуків роботодавців */
+.review-item {
+  background-color: #f8fafc;
+  border-left: 4px solid #1d4ed8;
+  padding: 12px 16px;
+  margin-top: 12px;
+  border-radius: 4px;
+}
+
+.review-author {
+  font-weight: bold;
+  font-size: 14px;
+  color: #1e293b;
+  margin-bottom: 2px;
+}
+
+.review-email {
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.review-text {
+  font-size: 13px;
+  color: #334155;
+  line-height: 1.4;
+}
+
+/* Модальне вікно */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Затемнення фону */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+    .modal-overlay.hidden {
+        display: none; /* Приховує вікно */
+    }
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 420px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    border: none;
+    background: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #64748b;
+}
+
+.form-group {
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+    .form-group label {
+        display: block;
+        font-size: 13px;
+        margin-bottom: 4px;
+        color: #334155;
+        font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #cbd5e1;
+        border-radius: 4px;
+        font-size: 14px;
+        box-sizing: border-box;
+    }
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #1d4ed8;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+    .submit-btn:hover {
+        background-color: #1e40af;
+    }
+
+/* Стилі кнопки перемикача теми */
+.theme-btn {
+    background-color: #ffffff;
+    color: #1e293b;
+    border: 1px solid #cbd5e1;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+    .theme-btn:hover {
+        background-color: #f1f5f9;
+    }
+
+/* Нічна тема */
+body.dark-theme {
+    background-color: #0f172a;
+    color: #f1f5f9;
+}
+
+    body.dark-theme .card {
+        background-color: #1e293b;
+        border-color: #334155;
+        color: #f1f5f9;
+    }
+
+    body.dark-theme h2 {
+        color: #f8fafc;
+        border-bottom-color: #3b82f6;
+    }
+
+    body.dark-theme h3 {
+        color: #e2e8f0;
+    }
+
+    body.dark-theme .badge {
+        background-color: #334155;
+        color: #e2e8f0;
+    }
+
+        body.dark-theme .badge:hover {
+            background-color: #2563eb;
+            color: #ffffff;
+        }
+
+    body.dark-theme .review-item {
+        background-color: #1e293b;
+        border-left-color: #3b82f6;
+    }
+
+    body.dark-theme .review-author {
+        color: #f8fafc;
+    }
+
+    body.dark-theme .review-text {
+        color: #cbd5e1;
+    }
+
+    body.dark-theme .modal-content {
+        background-color: #1e293b;
+        color: #f1f5f9;
+    }
+
+    body.dark-theme .form-group label {
+        color: #cbd5e1;
+    }
+
+    body.dark-theme .form-group input,
+    body.dark-theme .form-group textarea {
+        background-color: #0f172a;
+        color: #f8fafc;
+        border-color: #475569;
+    }

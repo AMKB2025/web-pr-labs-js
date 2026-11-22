@@ -3,63 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Резюме</title>
+    <title>Резюме — Александрук Максим</title>
+
+    <!-- 1. External styles (Зовнішній файл) -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- 2. Internal styles (Внутрішні стилі в head) -->
+    <style>
+        header h1 {
+            color: #1e293b;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+    </style>
 </head>
 <body>
 
-    <header>
+    <header class="header-banner">
+        <!-- Кнопка перемикання теми -->
+        <div style="text-align: right; margin-bottom: 8px;">
+            <button id="theme-toggle" class="theme-btn">Нічна тема</button>
+        </div>
+
         <h1>Александрук Максим Олександрович</h1>
-        <p>
-            Email: <a href="mailto:maksym.aleksandruk.kb.2025@lpnu.ua.com">maksym.aleksandruk.kb.2025@lpnu.ua</a> |
-            GitHub: <a href="https://github.com/AMKB2025" target="_blank" rel="noopener noreferrer">https://github.com/AMKB2025</a> |
-            Телефон: <a href="tel:+380958031126">+380 (95) 803 11 26</a>
+        <p class="contacts">
+            <span>Email: <a href="mailto:maksym.aleksandruk.kb.2025@lpnu.ua">maksym.aleksandruk.kb.2025@lpnu.ua</a></span>
+            <span>GitHub: <a href="https://github.com/AMKB2025" target="_blank" rel="noopener noreferrer">github.com/AMKB2025</a></span>
+            <span>Телефон: <a href="tel:+380958031126">+380 (95) 803 11 26</a></span>
+        </p>
     </header>
 
-    <main>
-        <section>
+    <!-- Головна сітка на CSS Grid -->
+    <main class="resume-grid">
+
+        <!-- Секція з ID-селектором -->
+        <section id="profile-summary" class="card full-width">
             <h2>Про мене</h2>
             <p>
-                Цілеспрямований студент початківець у сфері кібербезпеки. 
+                Цілеспрямований студент-початківець у сфері кібербезпеки. Прагну розвивати практичні навички аудиту систем безпеки, мережевого захисту та безпечного програмування.
             </p>
         </section>
 
-        <section>
+        <section class="card">
             <h2>Освіта</h2>
-            <article>
-                <h3>Національний Університет Львівська Політехніка</h3>
+            <article class="timeline-item">
+                <h3>Національний Університет «Львівська Політехніка»</h3>
                 <p><strong>Спеціальність:</strong> Кібербезпека (F5) / 2 курс</p>
-                <p><strong>Роки навчання:</strong> 2025 – 2026 (Бакалавр)</p>
+                <p><strong>Роки навчання:</strong> 2025 – 2029 (Бакалавр)</p>
             </article>
         </section>
 
-        <section>
-            <h2>Досвід роботи / Проєкти</h2>
-            <article>
+        <section class="card">
+            <h2>Досвід роботи</h2>
+            <article class="timeline-item">
+                <h3>Аудит кібербезпеки</h3>
                 <p><em>Квітень 2026 – Червень 2026</em></p>
-                <p>Проведення аудиту кібербезпеки підприємства згідно стандарту ДСТУ/ISO 27000</p>
-                <ul>
+                <p>Проведення аудиту кібербезпеки підприємства згідно зі стандартом ДСТУ/ISO 27000.</p>
             </article>
         </section>
 
-        <section>
+        <section class="card full-width">
             <h2>Навички</h2>
-            <ul>
-                <li>Володіння англійською мовою (B2)</li>
-                <li>Базові знання інформаційної безпеки (ISO 27001, COBIT)</li>
-                <li>Знання концепцій комп'ютерних мереж (модель OSI, мережеві протоколи)</li>
-                <li>Python, C#</li>
-                <li>HTML, CSS</li>
-                <li>Основи Git та GitHub</li>
-                <li>Основи JavaScript</li>
+            <ul class="skills-list">
+                <li class="badge">Володіння англійською мовою (B2)</li>
+                <li class="badge">Базові знання інформаційної безпеки (ISO 27001, COBIT)</li>
+                <li class="badge">Концепції мереж (OSI, TCP/IP)</li>
+                <li class="badge">Python, C#</li>
+                <li class="badge">HTML5 &amp; CSS3</li>
+                <li class="badge">Основи Git та GitHub</li>
+                <li class="badge">Основи JavaScript</li>
             </ul>
+        </section>
+
+        <!-- Секція для коментарів роботодавців (Завдання 2) -->
+        <section class="card full-width">
+            <h2>Відгуки роботодавців</h2>
+            <div id="reviews-container"></div>
         </section>
 
     </main>
 
-    <footer>
-        <hr>
-        <p>&copy; Всі права захищено.</p>
+    <!-- 3. Inline styles (Вбудований стиль прямо в тезі) -->
+    <footer style="text-align: center; padding: 20px; color: #64748b; font-size: 14px;">
+        <hr style="margin-bottom: 12px; border: 0; border-top: 1px solid #e2e8f0;">
+        <p>&copy; 2026 Александрук Максим. Всі права захищено.</p>
+
+        <!-- Блок для відображення системної інформації з localStorage -->
+        <p id="system-info" style="margin-top: 8px; font-size: 12px; color: #94a3b8;"></p>
     </footer>
+
+    <!-- Модальне вікно з формою (Завдання 3) -->
+    <div id="contact-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button id="close-modal" class="modal-close">&times;</button>
+            <h3>Форма зворотного зв'язку</h3>
+            <p style="font-size: 13px; color: #64748b; margin-bottom: 12px;">
+                Залиште свої контакти, і я зв'яжуся з вами.
+            </p>
+
+            <form action="https://formspree.io/f/mqppvkvd" method="POST">
+                <div class="form-group">
+                    <label for="name">Ім'я:</label>
+                    <input type="text" id="name" name="name" required placeholder="Ваше ім'я">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Номер телефону:</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+380...">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Повідомлення:</label>
+                    <textarea id="message" name="message" rows="3" required placeholder="Ваше повідомлення"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Надіслати</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Підключення нашого файлу скриптів перед закриваючим тегом </body> -->
+    <script src="script.js"></script>
 
 </body>
 </html>
