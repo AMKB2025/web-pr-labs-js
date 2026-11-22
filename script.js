@@ -69,7 +69,7 @@ setTimeout(() => {
     if (modal) {
         modal.classList.remove('hidden');
     }
-}, 600);
+}, 60000);
 
 // Закриття вікна при кліку на хрестик
 if (closeModalBtn) {
